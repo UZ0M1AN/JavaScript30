@@ -58,7 +58,19 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
+  const key = document.querySelectorAll('.key');
+  const audio = document.querySelectorAll('audio');
+  const arrAudio = [...audio];
 
+  key.forEach(k => {
+    let sound;
+    
+    k.addEventListener('click', function(e) {     
+      sound = arrAudio.find(audio => audio.dataset.key === this.dataset.key);
+      sound.currentTime = 0;
+      sound.play();
+    })
+  })
 </script>
 
 
